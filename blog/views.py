@@ -35,7 +35,7 @@ class PostsByTag(ListView):
     template_name = 'blog/index.html'
     context_object_name = 'posts'
     paginate_by = 4
-    allow_empty = False
+    allow_empty = True
 
     def get_queryset(self):
         return Post.objects.filter(tags__slug=self.kwargs['slug'])
@@ -62,7 +62,7 @@ class GetPost(DetailView):
 class Search(ListView):
     template_name = 'blog/search.html'
     context_object_name = 'posts'
-    paginate_by = 1
+    paginate_by = 4
 
 
     def get_queryset(self):
